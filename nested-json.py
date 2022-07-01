@@ -11,11 +11,6 @@ spark = (SparkSession
     .getOrCreate())
 spark.sparkContext.setLogLevel("WARN")   
 
-conf = SparkConf() \
-        .setAppName("read-json") \
-        .set("spark.shuffle.service.enabled", "false") \
-        .set("spark.dynamicAllocation.enabled", "false")
-
 
 ## Reading a JSON file into a DataFrame
 json = 'api.json'
