@@ -6,6 +6,8 @@ from pyspark.sql.types import *
 spark = (SparkSession
     .builder
     .master("spark://localhost:7077")
+    .set("spark.shuffle.service.enabled", "false")
+    .set("spark.dynamicAllocation.enabled", "false")
     .appName("read-json")
     .getOrCreate())
 spark.sparkContext.setLogLevel("WARN")   
