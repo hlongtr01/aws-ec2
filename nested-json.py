@@ -5,6 +5,7 @@ from pyspark.sql.types import *
 
 spark = (SparkSession
     .builder
+    .master("spark://localhost:7077")
     .appName("read-json")
     .getOrCreate())
 spark.sparkContext.setLogLevel("WARN")   
