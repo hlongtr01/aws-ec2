@@ -1,16 +1,20 @@
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql.types import *
+from pyspark.conf import SparkConf
 
 
 spark = (SparkSession
     .builder
-    .master("spark://localhost:7077")
-    .set("spark.shuffle.service.enabled", "false")
-    .set("spark.dynamicAllocation.enabled", "false")
+    .master("spark://localhost:7077")   
     .appName("read-json")
     .getOrCreate())
 spark.sparkContext.setLogLevel("WARN")   
+
+conf = SparkConf() \
+        .setAppName("read-json") \
+        .set("spark.shuffle.service.enabled", "false") \
+        .set("spark.dynamicAllocation.enabled", "false")
 
 
 ## Reading a JSON file into a DataFrame
