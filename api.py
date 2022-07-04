@@ -4,7 +4,6 @@ import json
 
 spark = (SparkSession
     .builder
-    .master("spark://localhost:7077") 
     .appName("api-data")
     .getOrCreate())
 sc=spark.sparkContext
