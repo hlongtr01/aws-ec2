@@ -1,3 +1,4 @@
+from pyspark import SparkContext
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql.types import *
@@ -8,9 +9,7 @@ spark = (SparkSession
     .builder  
     .appName("read-json")
     .getOrCreate())
-spark.sparkContext.setLogLevel("WARN")   
-
-conf = SparkConf() \
+spark_conf = SparkConf() \
         .setAppName("read-json") \
         .setMaster("spark://localhost:7077") \
         .set("spark.blockManager.port", "10025") \
@@ -20,6 +19,8 @@ conf = SparkConf() \
         .set("spark.executor.memory", "1g") \
         .set("spark.driver.host", "localhost")
 
+sc = SparkContext(conf=spark_conf)
+spark.sc.setLogLevel("WARN")   
 
 
 ## Reading a JSON file into a DataFrame
