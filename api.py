@@ -1,10 +1,22 @@
 import requests
 from pyspark.sql import SparkSession
 import json
+from pyspark.conf import SparkConf
+
+
+spark_conf = SparkConf() \
+        .setAppName("read-json") \
+        .setMaster("spark://localhost:7077") \
+        .set("spark.blockManager.port", "10025") \
+        .set("spark.driver.blockManager.port", "10026") \
+        .set("spark.driver.port", "10027") \
+        .set("spark.executor.cores", 1) \
+        .set("spark.executor.memory", "1g") \
+        .set("spark.driver.host", "localhost")
 
 spark = (SparkSession
     .builder
-    .appName("api-data")
+    .config(conf=spark_conf)
     .getOrCreate())
 sc=spark.sparkContext
 sc.setLogLevel("WARN")
