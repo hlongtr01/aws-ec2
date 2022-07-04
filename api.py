@@ -7,6 +7,8 @@ from pyspark.conf import SparkConf
 spark_conf = SparkConf() \
         .setAppName("read-json") \
         .setMaster("spark://localhost:7077") \
+        .set("spark.shuffle.service.enabled", "false") \
+        .set("spark.dynamicAllocation.enabled", "false") \
         .set("spark.blockManager.port", "10025") \
         .set("spark.driver.blockManager.port", "10026") \
         .set("spark.driver.port", "10027") \
