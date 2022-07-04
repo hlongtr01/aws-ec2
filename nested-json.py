@@ -5,11 +5,21 @@ from pyspark.conf import SparkConf
 
 
 spark = (SparkSession
-    .builder
-    .master("spark://localhost:7077")   
+    .builder  
     .appName("read-json")
     .getOrCreate())
 spark.sparkContext.setLogLevel("WARN")   
+
+conf = SparkConf() \
+        .setAppName("read-json") \
+        .setMaster("spark://localhost:7077") \
+        .set("spark.blockManager.port", "10025") \
+        .set("spark.driver.blockManager.port", "10026") \
+        .set("spark.driver.port", "10027") \
+        .set("spark.cores.max", "1") \
+        .set("spark.executor.memory", "1g") \
+        .set("spark.driver.host", "localhost")
+
 
 
 ## Reading a JSON file into a DataFrame
