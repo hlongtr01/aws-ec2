@@ -9,10 +9,6 @@ spark_conf = SparkConf() \
         .setMaster("spark://localhost:7077") \
         .set("spark.shuffle.service.enabled", "false") \
         .set("spark.dynamicAllocation.enabled", "false") \
-        .set("spark.executor.cores", 1) \
-        .set("spark.executor.memory", "1g") \
-        .set("spark.num.executors", 3) \
-        .set("spark.driver.host", "localhost")
 
 spark = (SparkSession
     .builder
