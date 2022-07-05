@@ -10,7 +10,7 @@ spark_conf = SparkConf() \
         .set("spark.shuffle.service.enabled", "false") \
         .set("spark.dynamicAllocation.enabled", "false") \
         .set("spark.executor.memory", "2G") \
-        .set("spark.executor.cores", 1) \    
+        .set("spark.executor.cores", 1)  
 
 spark = (SparkSession
     .builder
