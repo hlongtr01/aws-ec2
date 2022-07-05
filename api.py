@@ -8,8 +8,8 @@ from pyspark.conf import SparkConf
 spark_conf = SparkConf() \
         .setAppName("read-json") \
         .setMaster("spark://localhost:7077") \
-        .set("spark.executor.memory", "4G") \
-        .set("spark.executor.cores", 1)  
+        .set("spark.executor.memory", "8G") \
+        .set("spark.executor.cores", 2)  
 
 spark = (SparkSession
     .builder
