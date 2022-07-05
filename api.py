@@ -3,13 +3,12 @@ from pyspark.sql import SparkSession
 import json
 from pyspark.conf import SparkConf
 
-
+##        .set("spark.shuffle.service.enabled", "false") \
+##        .set("spark.dynamicAllocation.enabled", "false") \
 spark_conf = SparkConf() \
         .setAppName("read-json") \
         .setMaster("spark://localhost:7077") \
-        .set("spark.shuffle.service.enabled", "false") \
-        .set("spark.dynamicAllocation.enabled", "false") \
-        .set("spark.executor.memory", "2G") \
+        .set("spark.executor.memory", "4G") \
         .set("spark.executor.cores", 1)  
 
 spark = (SparkSession
