@@ -14,7 +14,8 @@ spark_conf = SparkConf() \
         .set("spark.driver.memory", "1G") \
         .set("spark.driver.cores", 1) \
         .set("spark.shuffle.service.enabled", "false") \
-        .set("spark.dynamicAllocation.enabled", "false")
+        .set("spark.dynamicAllocation.enabled", "false") \
+        .set("spark.deploy.mode", "client")
 
 
 spark = (SparkSession
