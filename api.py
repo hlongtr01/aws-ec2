@@ -1,6 +1,6 @@
 import requests
-from pyspark.sql import SparkSession
 import json
+from pyspark.sql import SparkSession
 from pyspark.conf import SparkConf
 
 
@@ -9,6 +9,8 @@ spark_conf = SparkConf() \
         .setMaster("spark://localhost:7077") \
         .set("spark.executor.memory", "4G") \
         .set("spark.executor.cores", 1) \
+        .set("spark.num.executors", 1) \
+        .set("spark.driver.memory", "512M") \
         .set("spark.shuffle.service.enabled", "false") \
         .set("spark.dynamicAllocation.enabled", "false")        
 
