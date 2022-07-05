@@ -6,7 +6,8 @@ from pyspark.conf import SparkConf
 
 spark_conf = SparkConf() \
         .setAppName("read-json") \
-        .setMaster("spark://localhost:7077") 
+        .setMaster("spark://localhost:7077") \
+        .set("spark.delploy.mode", "cluster")
 ##        .set("spark.executor.memory", "4G") \
 ##        .set("spark.executor.cores", 1) \
 ##        .set("spark.num.executors", 1) \
