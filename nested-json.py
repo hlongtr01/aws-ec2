@@ -8,21 +8,19 @@ from pyspark.conf import SparkConf
 ## SPARK CONFIGURATION AND SPARKSESSION INITIATE
 spark_conf = SparkConf() \
         .setAppName("read-json") \
-        .setMaster("spark://localhost:7077") \
-        .set("spark.blockManager.port", "10025") \
-        .set("spark.driver.blockManager.port", "10026") \
-        .set("spark.driver.port", "10027") \
-        .set("spark.executor.cores", 1) \
-        .set("spark.executor.memory", "1g") \
-        .set("spark.driver.host", "localhost")
+##        .setMaster("spark://localhost:7077") \
+##        .set("spark.blockManager.port", "10025") \
+##        .set("spark.driver.blockManager.port", "10026") \
+##        .set("spark.driver.port", "10027") \
+##        .set("spark.executor.cores", 1) \
+##        .set("spark.executor.memory", "1g") \
+##        .set("spark.driver.host", "localhost")
 
 spark = (SparkSession
     .builder
     .config(conf=spark_conf) 
     .getOrCreate())
 spark.sparkContext.setLogLevel("WARN")   
-
-
 
 
 
