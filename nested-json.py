@@ -8,8 +8,7 @@ from pyspark.conf import SparkConf
 ## SPARK CONFIGURATION AND SPARKSESSION INITIATE
 spark_conf = SparkConf() \
         .setAppName("read-json") \
-        .set("spark.executor.memory", "1g")             
-##        .setMaster("spark://localhost:7077") \
+        .setMaster("spark://localhost:7077")                
 ##        .set("spark.executor.cores", 1) \
 ##        .set("spark.driver.host", "localhost")
 

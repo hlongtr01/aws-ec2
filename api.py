@@ -6,13 +6,14 @@ from pyspark.conf import SparkConf
 
 spark_conf = SparkConf() \
         .setAppName("api") \
-##        .setMaster("spark://18.142.238.234:7077") \
-##        .set("spark.executor.memory", "1G") \
+        .setMaster("spark://192.168.245.130:7077") \
+##        .set("spark.executor.memory", "4GB") \
 ##        .set("spark.executor.cores", 1) \
+##        .set("spark.shuffle.service.enabled", "false") \
+##        .set("spark.dynamicAllocation.enabled", "false")   
 ##        .set("spark.num.executors", 1) \
 ##        .set("spark.driver.memory", "1G") \
-##        .set("spark.shuffle.service.enabled", "false") \
-##        .set("spark.dynamicAllocation.enabled", "false")        
+     
 
 spark = (SparkSession
     .builder
